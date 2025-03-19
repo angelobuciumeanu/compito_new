@@ -3,14 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E-Commerce Casa</title>
+    <title>E-Commerce Multivaluta</title>
     <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
     <div class="container">
         <header class="header">
+            <div class="currency-selector">
+                <select id="currencySelect">
+                    <option value="EUR">EUR €</option>
+                    <option value="USD">USD $</option>
+                    <option value="GBP">GBP £</option>
+                    <option value="JPY">JPY ¥</option>
+                </select>
+            </div>
             <h1>Gestione Prodotti</h1>
-            <p>Piattaforma di gestione inventario</p>
+            <p>Prezzi in tempo reale in diverse valute</p>
         </header>
 
         <main class="main-content">
@@ -48,10 +56,6 @@
                                     <option value="">Scegli categoria</option>
                                     <option value="elettronica">Elettronica</option>
                                     <option value="arredamento">Arredamento</option>
-                                    <option value="Opzione 1">Ufficio</option>
-                                    <option value="Opzione 2">Ufficio</option>
-                                    <option value="Opzione 3">Ufficio</option>
-                                    <option value="Opzione 4">Ufficio</option>
                                     <option value="ufficio">Ufficio</option>
                                 </select>
                             </div>
