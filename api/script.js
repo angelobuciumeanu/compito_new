@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const formData = new FormData(form);
 
         try {
-            const response = await fetch('api/addProduct.php', {
+            const response = await fetch('/api/addProduct.php', {
                 method: 'POST',
                 body: formData
             });
@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Carica prodotti
     const loadProducts = async () => {
         try {
-            const response = await fetch('api/getProduct.php');
+            const response = await fetch('/api/getProduct.php');
             const products = await response.json();
             
             productsList.innerHTML = products.map(product => `

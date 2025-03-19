@@ -1,5 +1,8 @@
 <?php
 header('Content-Type: application/json');
+header('Access-Control-Allow-Origin: http://localhost');
+header('Access-Control-Allow-Methods: POST, OPTIONS');
+header('Access-Control-Allow-Headers: Content-Type');
 require_once __DIR__ . '/../lib/Database.php';
 
 $response = ['success' => false, 'message' => ''];

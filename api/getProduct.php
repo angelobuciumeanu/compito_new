@@ -1,5 +1,6 @@
 <?php
 header('Content-Type: application/json');
+header('Access-Control-Allow-Origin: http://localhost');
 require_once __DIR__ . '/../lib/Database.php';
 
 try {
