@@ -1,31 +1,26 @@
 <?php
-require_once __DIR__ . '/../config/config.php';
-
 class Database {
-    private static $instance = null;
+    private static $instance;
     private $connection;
 
     private function __construct() {
         try {
             $this->connection = new PDO(
-                "mysql:host=" . DB_HOST . ";dbname=" . DB_NAME,
-                DB_USER,
-                DB_PASS,
+                'mysql:host=localhost;dbname=marketplace;charset=utf8',
+                'root',
+                '',
                 [
                     PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-                    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-                    PDO::ATTR_EMULATE_PREPARES => false
+                    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
                 ]
             );
-        } catch (PDOException $e) {
-            die("Connessione al database fallita: " . $e->getMessage());
+        } catch(PDOException $e) {
+            die("Database error: " . $e->getMessage());
         }
     }
 
     public static function getInstance() {
-        if (!self::$instance) {
-            self::$instance = new Database();
-        }
+        if(!self::$instance) self::$instance = new self();
         return self::$instance;
     }
 
@@ -33,3 +28,4 @@ class Database {
         return $this->connection;
     }
 }
+?>

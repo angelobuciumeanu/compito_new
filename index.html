@@ -2,26 +2,62 @@
 <html lang="it">
 <head>
     <meta charset="UTF-8">
-    <title>E-commerce Casa</title>
-    <link rel="stylesheet" href="http://localhost/assets/css/style.css">
+    <title>E-commerce Base</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 1200px; margin: 0 auto; padding: 20px; }
+        .product-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .product-card { border: 1px solid #ddd; padding: 15px; border-radius: 8px; }
+        img { max-width: 100%; height: 200px; object-fit: cover; }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Gestione Prodotti</h1>
-        
-        <div class="form-section">
-            <h2>Inserisci Prodotto</h2>
-            <form id="productForm" enctype="multipart/form-data">
-                <!-- Campi del form rimangono invariati -->
-            </form>
-        </div>
+    <h1>Gestione Prodotti</h1>
+    
+    <form id="productForm" enctype="multipart/form-data">
+        <input type="text" name="nome" placeholder="Nome" required>
+        <textarea name="descrizione" placeholder="Descrizione" required></textarea>
+        <input type="number" name="prezzo" step="0.01" placeholder="Prezzo" required>
+        <input type="number" name="quantita" placeholder="Quantità" required>
+        <select name="categoria" required>
+            <option value="elettronica">Elettronica</option>
+            <option value="arredamento">Arredamento</option>
+        </select>
+        <input type="file" name="immagine" accept="image/jpeg" required>
+        <button type="submit">Aggiungi</button>
+    </form>
 
-        <div class="products-section">
-            <h2>Catalogo Prodotti</h2>
-            <div id="productsList" class="products-grid"></div>
-        </div>
-    </div>
+    <div id="productsList" class="product-grid"></div>
 
-    <script src="http://localhost/api/script.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const form = document.getElementById('productForm');
+        const loadProducts = async () => {
+            try {
+                const response = await fetch('/api/getProduct.php');
+                const products = await response.json();
+                document.getElementById('productsList').innerHTML = products.map(p => `
+                    <div class="product-card">
+                        <img src="/assets/img/${p.percorso_immagine}" alt="${p.nome}">
+                        <h3>${p.nome}</h3>
+                        <p>€${p.prezzo}</p>
+                        <small>${p.categoria}</small>
+                    </div>
+                `).join('');
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        };
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const formData = new FormData(form);
+            await fetch('/api/addProduct.php', { method: 'POST', body: formData });
+            form.reset();
+            loadProducts();
+        });
+
+        loadProducts();
+    });
+    </script>
 </body>
 </html>
