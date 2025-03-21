@@ -10,3 +10,9 @@ Ricerca tramite vari criteri
 Pagina dove fare data analisi (Mediaprezzi , medai magazino ….
 Aggiunta di altri criteri per i prodotti ( PESO DIMENSIONE COSTOA NOI )
 e molte altre 
+
+
+il database glielo ho caricato dentro la cartella Database , come consigliato da chat gpt , le hoaggiunto anche il file che spiga come sistemare il tutto ,acnhe se credo che lei non ne avra bisogno
+
+
+Devo ammettere questo lavoro mi ha divertito molto e mi ha dato molto , sono certo che approfondirò questo argomento pretenderlo magari una possibilità lavorativa
