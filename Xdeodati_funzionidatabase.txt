@@ -1,0 +1,12 @@
+	Il database ha varie funzioni le elencherò le migliori :
+Avere un cambio valuta che si aggiorna automaticamente grazie al collegamento tramite chiave api di un excenge
+A vere una barra di ricerca per i prodotti tramite nome 
+Ce la data di aggiunta 
+
+
+FUNZIONI CHE IMPLEMENTERO DURANTE LO STAGE :
+Sistema semplificato per poter eliminare o modificare i prodotti nel catalogo 
+Ricerca tramite vari criteri 
+Pagina dove fare data analisi (Mediaprezzi , medai magazino ….
+Aggiunta di altri criteri per i prodotti ( PESO DIMENSIONE COSTOA NOI )
+e molte altre 
